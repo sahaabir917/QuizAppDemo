@@ -75,30 +75,41 @@ class _MyHomePageState extends State<HomeScreen> with TickerProviderStateMixin {
       switch (answeredpostion) {
         case 1:
           answeredoption = questionNotifier.getQuestionsList()[index].option1;
+          // answeredoption = " " + answeredoption;
           break;
         case 2:
           answeredoption = questionNotifier.getQuestionsList()[index].option2;
+          // answeredoption = " " + answeredoption;
           break;
         case 3:
           answeredoption = questionNotifier.getQuestionsList()[index].option3;
+          // answeredoption = " " + answeredoption;
           break;
         case 4:
           answeredoption = questionNotifier.getQuestionsList()[index].option4;
+          // answeredoption = " " + answeredoption;
           break;
 
         default:
           answeredoption = questionNotifier.getQuestionsList()[index].option4;
+          answeredoption = " " + answeredoption;
           break;
       }
 
-      if (questionNotifier.getQuestionsList()[index].correctAnswer ==
+      var answer = " "+questionNotifier.getQuestionsList()[index].correctAnswer;
+
+      if (answer ==
           answeredoption) {
+        print("correct answer :" + questionNotifier.getQuestionsList()[index].correctAnswer);
+        print("option answer :" + answeredoption);
         print("correct update");
         //update correct answer
         modelTestNotifier.onRightAnswer();
         modelTestNotifier.givenAnswer();
       } else {
         print("wrong update");
+        print("correct answer :" + questionNotifier.getQuestionsList()[index].correctAnswer);
+        print("option answer :" + answeredoption);
         modelTestNotifier.onWrongAnswer();
         modelTestNotifier.givenAnswer();
       }
